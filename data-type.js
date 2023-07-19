@@ -33,3 +33,5 @@ console.log(x1 === x2)
 //坑
 console.log('1'+ 0)//转化成字符串拼接
 console.log('1'-1)//转化成number类型进行计算
+
+// typeof 查看数据类型
