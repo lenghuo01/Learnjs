@@ -39,3 +39,9 @@ const ff = function(obj)
 }
 
 pl(23,ff)
+
+// 凡是callback函数，优先考虑使用箭头函数,舍去function,好看
+const test1=(a)=>{
+    console.log(a)
+}
+test1(3)
