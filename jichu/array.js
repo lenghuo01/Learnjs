@@ -1,9 +1,25 @@
-const arr =[1,2,3]
-console.log(arr)
-arr[0]=4
-console.log(arr[0])
+
+//深拷贝，新建一个对象，把原对象的属性值copy过来
+const arr =[2,2,3]
+//引用数据类型在做copy时，只是copy了引用地址，浅拷贝
+
+const arr1=[{name:2},{name:20}]
+
+// pop push shift
 
 
-// 数组并不要求数据类型一致
-const arr1=[1,'hh',true,null,undefined,{name:'aaa'},[1,2,3]]
-console.log(arr1)
+//遍历数组
+// const callback = function(item,index,arr)
+// {
+//    console.log(item,index,arr)
+// }
+const callback=function(item)
+{
+console.log(item)
+return {age:item.name+1}
+}
+//arr1.forEach(callback)
+
+//map
+const arr2=arr1.map(callback)
+console.log(arr2)

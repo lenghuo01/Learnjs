@@ -24,3 +24,18 @@ const fn = function()
 platform(fn)
 
 //平台函数不通过return返回值，而是通过回调函数传递返回值
+// callback 函数最大的用处是和异步相关
+
+//回调地狱
+function pl(pp,ff)
+{
+ ff({name: pp })
+}
+
+const ff = function(obj)
+{
+    console.log(obj)
+    // 这里才能获取平台函数的返回值
+}
+
+pl(23,ff)
