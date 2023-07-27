@@ -20,10 +20,20 @@ const  obj2={
 obj2.sayHi()
 
 
-function Person(){
+function Person(name,age){
     // 将构造函数中的this指向实例化对象
-    this.name='zhangsan '
-    this.age=20
+    this.name=name
+    this.age=age
+    this.getName=function(){
+        return this.name
+    }
+    this.getAge=function(){
+        return this.age
+    }
 }
-const obj3=new Person()
-console.log(obj3)
+const obj3=new Person('zhangsan',22)
+console.log(obj3.name)
+
+
+// 请仿写数组的yourselfForeach方法
+const arr=[]
