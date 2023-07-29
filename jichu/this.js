@@ -62,8 +62,11 @@ test2.apply(people,['30:31'])
 function test3(){
 //内置属性
 console.log(arguments)          //function(item){console.log(item)}
-Array.prototype.forEach.call(arguments,(item)=>console.log(item))
+// Array.prototype.forEach.call(arguments,(item)=>console.log(item))
+const hh=Array.prototype.forEach.bind(arguments)
+hh(console.log)
 }
+
 
 test3(1,2,3)
 
