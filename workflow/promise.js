@@ -12,7 +12,7 @@ function network()
     // reject 对应失败的回调
     const callback=(resolve,reject)=>{
     setTimeout(()=>{
-        console.log('hello')
+        //console.log('hello')
         // 转换状态并，携带返回值
         resolve('hello')
     },3000)
@@ -22,5 +22,10 @@ function network()
 }
 
 const pro = network()
-
-pro.then (()=>{},()=>{} )
+// 回调函数的返回值，会被then方法作为返回值
+pro.then (
+    (data)=>{console.log(data)
+        return network()
+    } 
+ 
+).then((data)=>console.log(data))
