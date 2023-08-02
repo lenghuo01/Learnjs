@@ -30,9 +30,53 @@ pro.then (
  
 ).then((data)=>console.log(data))
 //实现sleep函数
+// function sleep(time){
+// console.log('start')
+//     sleep(3000).then(()=>{
+//         console.log('hello')
+//     })
+// }
 function sleep(time){
-console.log('start')
-    sleep(3000).then(()=>{
-        console.log('hello')
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{resolve()},time)
     })
 }
+sleep(3000).then(()=>console.log('hello'))
+
+//promise方法
+// Promise.all所有的promise都转换为fullfilled状态，才会执行then
+// 异步任务队列->promise array
+// function factoaryTask(){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve('helloww')
+//         },3000)
+//     })
+// }
+// const taskQueue=[]
+// for(let i=0;i<10;i++){
+//     taskQueue.push(factoaryTask()) 
+// }
+// // 直接产生一个rejected状态的promise
+// // taskQueue.push(Promise.reject('error'))
+// Promise.all(taskQueue).then((data)=>{console.log(data)},(error)=>{console.log(error)})
+function factoaryTask(data ){
+         return new Promise((resolve,reject)=>{
+             setTimeout(()=>{
+                 resolve('helloww'+data)
+             },3000)
+         })
+     }
+
+     //将异步同步化
+     async function main(){
+        // await 后面跟的是一个promise
+        const a  = await factoaryTask(1)
+        console.log(a)
+        const b = await factoaryTask(2)
+        console.log(b)
+        console.log('hh')
+        const c=await factoaryTask(3)
+        console.log(c)
+     }
+     main()
